@@ -1,0 +1,51 @@
+[build-system]
+# AVOID CHANGING REQUIRES: IT WILL BE UPDATED BY PYSCAFFOLD!
+requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+# For smarter version schemes and other configuration options,
+# check out https://github.com/pypa/setuptools_scm
+version_scheme = "no-guess-dev"
+
+[tool.black]
+line-length = 80
+
+[tool.docstrfmt]
+line_length = 80
+
+[tool.isort]
+profile = "black"
+known_first_party = "template_repo_python"
+multi_line_output = 3
+line_length = 80
+
+[tool.coverage.run]
+branch = true
+source = ["template_repo_python"]
+# omit = bad_file.py
+
+[tool.coverage.paths]
+source = ["src/", "*/site-packages/"]
+
+[tool.coverage.report]
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    "pragma: no cover",
+
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+] # Regexes for lines to exclude from consideration
+
+[[tool.mypy.overrides]]
+module = "template_repo_python.*"
+disallow_incomplete_defs = true

@@ -1,0 +1,5 @@
+# Requirements file for building the Sphinx documentation website.
+# To build the module reference correctly, make sure that the requirements
+# for the package itself are installed as well!
+sphinx>=3.2.1
+sphinx_rtd_theme
